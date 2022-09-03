@@ -1,0 +1,49 @@
+
+@media screen and (min-width: 601px) {
+    header img {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header img {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .linesup, .linesdown {
+        height: 512px;
+    }
+
+    .linesup {
+        background: url("img/lines-up.png") no-repeat center;
+    }
+
+    .linesdown {
+        background: url("img/lines-down.png") no-repeat center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .linesup, .linesdown {
+        display: none;
+    }
+}
+
+.timetable td, th {
+    padding: 5px 10px;
+    min-width: 120px;
+}
+
+.timetable th {
+    font-weight: bold;
+    text-align: right;
+}
+
+.photo img {
+    text-align: center;
+    max-width: 400px;
+    max-height: 400px;
+    margin: 30px;
+}
