@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="main.css">
 <link rel="shortcut icon" href="img/logo-icon.png" />
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 </style>
@@ -21,7 +21,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-white" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-white" href="javascript:void(0);" onclick="toggleMenu()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Domů</a>
     <a href="#programy" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white">Programy</a>
     <a href="#about" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white">O Piomaximu</a>
@@ -30,9 +30,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="#programy" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Programy</a>
-    <a href="#about" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">O Piomaximu</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Kontakt</a>
+    <a href="#programy" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Programy</a>
+    <a href="#about" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">O Piomaximu</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Kontakt</a>
   </div>
 </div>
 
@@ -47,7 +47,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <div class="w3-twothird">
       <h1>Nejbližší program</h1>
       <h3>Jak na Levitio</h3>
-      <h5><strong>Vedoucí: </strong>Martin "Chemik" Zapletal</h5>
+      <h5><strong>Vedoucí: </strong>Martin „Chemik“ Zapletal</h5>
       <h5><strong>Kdy a kde: </strong>20. září od 19:00 v budově JmKOP</h5>
 
       <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
@@ -57,11 +57,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <a href="#"><h6>Odkaz na FB událost</h6></a>
     </div>
 
-    <div class="w3-third w3-padding-24 w3-center">
+    <div class="w3-third w3-padding-24 w3-center photo">
       <img src="img/icon-workshop.png" />
     </div>
 
-    <div class="w3-twothird">
+    <div>
       <h1>Další chystané programy</h1>
       <table class="timetable">
         <tr><th>5. října</th><td>Jak si nejlépe čistit zuby (Tomáš "Zuby" Vondrák)</td></tr>
@@ -88,7 +88,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 
-    <div class="w3-twothird w3-padding-64">
+    <div class="w3-padding-64">
       <h1>Organizátoři</h1>
       <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
 
@@ -97,8 +97,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 
-    <div class="w3-third w3-center photo">
-      <img src="img/org.jpg" ale="Organizátoři" />
+    <div>
+      <div class="w3-third w3-center w3-margin-bottom">
+        <img class="w3-badge w3-transparent smallimg" src="img/ledy.jpg" alt="Organizátoři" />
+        <h4>David „Ledy“ Beneš</h4>
+      </div>
+      <div class="w3-third w3-center w3-margin-bottom">
+        <img class="w3-badge w3-transparent smallimg" src="img/chemik.jpg" alt="Organizátoři" />
+        <h4>Martin „Chemik“ Zapletal</h4>
+      </div>
+      <div class="w3-third w3-center w3-margin-bottom">
+        <img class="w3-badge w3-transparent smallimg" src="img/slunicko.jpg" alt="Organizátoři" />
+        <h4>Radka „Sluníčko“ Mikušková</h4>
+      </div>
     </div>
   </div>
 </div>
@@ -119,7 +130,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 <script>
 // Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
+function toggleMenu() {
   var x = document.getElementById("navDemo");
   if (x.className.indexOf("w3-show") == -1) {
     x.className += " w3-show";
