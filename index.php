@@ -1,4 +1,5 @@
 <?php include_once "./db_connect.php"; // pripojeni k databazi ?>
+<?php // setlocale(LC_TIME, 'cs_CZ'); ?>
 
 <!DOCTYPE html>
 <html lang="cs">
@@ -44,29 +45,52 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 </header>
 
 <!-- First Grid -->
+<?php
+$sql = "SELECT programy.nazev, programy.popis, programy.termin, programy.lektor_jmeno, programy.fb_event, typy.img_name AS typ, mista.nazev AS misto
+FROM programy
+LEFT JOIN typy ON programy.typ_id = typy.id
+LEFT JOIN mista ON programy.misto_id = mista.id
+WHERE published=1 AND termin>CURRENT_TIMESTAMP";
+$result = $conn->query($sql);
+$pocet_programu = $result->num_rows;
+$termin_dt = date_create($row["termin"], timezone_open("Europe/Prague"));
+?>
 <div id="programy" class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
+
     <div class="w3-twothird">
       <h1>Nejbližší program</h1>
-      <h3>Budoucnost Setkání PP</h3>
-      <h5><strong>Vedoucí: </strong>Jirka Balej</h5>
-      <h5><strong>Kdy a kde: </strong>20. září od 19:00 v budově JmKOP</h5>
+      <?php if ($pocet_programu > 0) { ?>
+        <?php $row = $result->fetch_assoc(); ?>
+        <h3><?php echo $row["nazev"]; ?></h3>
+        <h5><strong>Vedoucí: </strong><?php echo $row["lektor_jmeno"]; ?></h5>
+        <h5><strong>Kdy a kde: </strong><?php echo date_format($termin_dt, 'j. F'); ?> od <?php echo date_format($termin_dt, 'G:i'); ?> <?php echo $row["misto"]; ?></h5>
 
-      <p class="w3-text-grey">První Piomaximum bude debata nad budoucností všem oblíbené vzdělávací víkendovky – Setkání PP. Přijďte mám říct váš názor na Setkání, případně podat pomocnou ruku při organizování, nebo si jen poslechnout, kam chceme tento víkend posunout do let budoucích.</p>
+        <p class="w3-text-grey"><?php echo $row["popis"]; ?></p>
 
-      <a href="https://fb.me/e/2HuuHg6Pn" target="_blank"><h6>Odkaz na FB událost</h6></a>
+        <a href=<?php echo "'".$row["fb_event"]."'"; ?> target="_blank"><h6>Odkaz na FB událost</h6></a>
+      <?php } else { ?>
+        <p>Momentálně není v blízké době naplánován žádný program.</p>
+      <?php } ?>
     </div>
 
-    <div class="w3-third w3-padding-24 w3-center photo">
-      <img src="img/icons/diskuze.png" />
-    </div>
+    <?php if ($pocet_programu > 0) { ?>
+      <div class="w3-third w3-padding-24 w3-center photo">
+        <img src=<?php echo "'img/icons/".$row["typ"]."'"; ?> />
+      </div>
+    <?php } ?>
+    
+    <?php if ($pocet_programu > 1) { ?>
+      <div>
+        <h1>Další chystané programy</h1>
+        <table class="timetable">
+          <?php while ($row = $result->fetch_assoc()) { ?>
+            <tr><th><?php echo date_format($termin_dt, 'j. F'); ?></th><td><?php echo $row["nazev"]; ?> (<?php echo $row["lektor_jmeno"]; ?>)</td></tr>
+          <?php } ?>
+        </table>
+      </div>
+    <?php } ?>
 
-    <div>
-      <h1>Další chystané programy</h1>
-      <table class="timetable">
-        <tr><th>13. října</th><td>Když si nerozumíme aneb jak se lépe domlouvat (Jana Pánková)</td></tr>
-      </table>
-    </div>
   </div>
 </div>
 
