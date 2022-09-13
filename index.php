@@ -1,5 +1,4 @@
 <?php include_once "./db_connect.php"; // pripojeni k databazi ?>
-<?php // setlocale(LC_TIME, 'cs_CZ'); ?>
 
 <!DOCTYPE html>
 <html lang="cs">
@@ -7,6 +6,9 @@
 <title>Piomaximum</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
