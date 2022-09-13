@@ -54,7 +54,6 @@ WHERE published=1 AND termin>CURRENT_TIMESTAMP
 ORDER BY termin";
 $result = $conn->query($sql);
 $pocet_programu = $result->num_rows;
-$termin_dt = date_create($row["termin"], timezone_open("Europe/Prague"));
 ?>
 <div id="programy" class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
@@ -63,6 +62,7 @@ $termin_dt = date_create($row["termin"], timezone_open("Europe/Prague"));
       <h1>Nejbližší program</h1>
       <?php if ($pocet_programu > 0) { ?>
         <?php $row = $result->fetch_assoc(); ?>
+        <?php $termin_dt = date_create($row["termin"]); ?>
         <h3><?php echo $row["nazev"]; ?></h3>
         <h5><strong>Vedoucí: </strong><?php echo $row["lektor_jmeno"]; ?></h5>
         <h5><strong>Kdy a kde: </strong><?php echo date_format($termin_dt, 'j. F'); ?> od <?php echo date_format($termin_dt, 'G:i'); ?> <?php echo $row["misto"]; ?></h5>
@@ -86,6 +86,7 @@ $termin_dt = date_create($row["termin"], timezone_open("Europe/Prague"));
         <h1>Další chystané programy</h1>
         <table class="timetable">
           <?php while ($row = $result->fetch_assoc()) { ?>
+            <?php $termin_dt = date_create($row["termin"]); ?>
             <tr><th><?php echo date_format($termin_dt, 'j. F'); ?></th><td><?php echo $row["nazev"]; ?> (<?php echo $row["lektor_jmeno"]; ?>)</td></tr>
           <?php } ?>
         </table>
