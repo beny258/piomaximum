@@ -50,7 +50,8 @@ $sql = "SELECT programy.nazev, programy.popis, programy.termin, programy.lektor_
 FROM programy
 LEFT JOIN typy ON programy.typ_id = typy.id
 LEFT JOIN mista ON programy.misto_id = mista.id
-WHERE published=1 AND termin>CURRENT_TIMESTAMP";
+WHERE published=1 AND termin>CURRENT_TIMESTAMP
+ORDER BY termin";
 $result = $conn->query($sql);
 $pocet_programu = $result->num_rows;
 $termin_dt = date_create($row["termin"], timezone_open("Europe/Prague"));
