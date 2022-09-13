@@ -65,7 +65,7 @@ $pocet_programu = $result->num_rows;
         <?php $termin_dt = date_create($row["termin"]); ?>
         <h3><?php echo $row["nazev"]; ?></h3>
         <h5><strong>Vedoucí: </strong><?php echo $row["lektor_jmeno"]; ?></h5>
-        <h5><strong>Kdy a kde: </strong><?php echo date_format($termin_dt, 'j. F'); ?> od <?php echo date_format($termin_dt, 'G:i'); ?> <?php echo $row["misto"]; ?></h5>
+        <h5><strong>Kdy a kde: </strong><?php echo date_format($termin_dt, 'j. n. \o\d G:i'); ?> <?php echo $row["misto"]; ?></h5>
 
         <p class="w3-text-grey"><?php echo $row["popis"]; ?></p>
 
@@ -87,7 +87,7 @@ $pocet_programu = $result->num_rows;
         <table class="timetable">
           <?php while ($row = $result->fetch_assoc()) { ?>
             <?php $termin_dt = date_create($row["termin"]); ?>
-            <tr><th><?php echo date_format($termin_dt, 'j. F'); ?></th><td><?php echo $row["nazev"]; ?> (<?php echo $row["lektor_jmeno"]; ?>)</td></tr>
+            <tr><th><?php echo date_format($termin_dt, 'j. n.'); ?></th><td><?php echo $row["nazev"]; ?> (<?php echo $row["lektor_jmeno"]; ?>)</td></tr>
           <?php } ?>
         </table>
       </div>
