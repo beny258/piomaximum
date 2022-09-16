@@ -66,12 +66,16 @@ $pocet_programu = $result->num_rows;
         <?php $row = $result->fetch_assoc(); ?>
         <?php $termin_dt = new DateTime($row["termin"]); ?>
         <h3><?php echo $row["nazev"]; ?></h3>
-        <h5><strong>Vedoucí: </strong><?php echo $row["lektor_jmeno"]; ?></h5>
-        <h5><strong>Kdy a kde: </strong><?php echo $termin_dt->format('j. n. \o\d G:i'); ?> <?php echo $row["misto"]; ?></h5>
+        <h5><strong>Vedoucí: </strong><?php echo( is_null($row["lektor_jmeno"]) ? "<em>(bude doplněno)</em>" : $row["lektor_jmeno"] ); ?></h5>
+        <h5><strong>Kdy a kde: </strong><?php echo $termin_dt->format('j. n. \o\d G:i'); ?> <?php echo( is_null($row["misto"]) ? "<em>(místo bude doplněno)</em>" : $row["misto"] ); ?></h5>
 
-        <p class="w3-text-grey"><?php echo $row["popis"]; ?></p>
+        <?php if (!is_null($row["popis"])) { ?>
+          <p class="w3-text-grey"><?php echo $row["popis"]; ?></p>
+        <?php } ?>
 
-        <a href=<?php echo "'".$row["fb_event"]."'"; ?> target="_blank"><h6>Odkaz na FB událost</h6></a>
+        <?php if (!is_null($row["fb_event"])) { ?>
+          <a href=<?php echo "'".$row["fb_event"]."'"; ?> target="_blank"><h6>Odkaz na FB událost</h6></a>
+        <?php } ?>
       <?php } else { ?>
         <p>Momentálně není v blízké době naplánován žádný program.</p>
       <?php } ?>
@@ -89,7 +93,7 @@ $pocet_programu = $result->num_rows;
         <table class="timetable">
           <?php while ($row = $result->fetch_assoc()) { ?>
             <?php $termin_dt = new DateTime($row["termin"]); ?>
-            <tr><th><?php echo $termin_dt->format('j. n.'); ?></th><td><?php echo $row["nazev"]; ?> (<?php echo $row["lektor_jmeno"]; ?>)</td></tr>
+            <tr><th><?php echo $termin_dt->format('j. n.'); ?></th><td><?php echo $row["nazev"]; echo( !is_null($row["lektor_jmeno"]) ? " (".$row["lektor_jmeno"].")" : "" ); ?></td></tr>
           <?php } ?>
         </table>
       </div>
