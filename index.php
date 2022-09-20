@@ -111,26 +111,45 @@ $pocet_programu = $result->num_rows;
 
     <div class="w3-twothird w3-padding-64">
       <h1>O Piomaximu</h1>
-      <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
+      <h5 class="w3-padding-32">Piomaximum je vzdělávací koncept, který probíhá
+        celý školní rok a jehož cílem je prohloubit znalosti a dovednosti vedoucích
+        dětských organizací, ať už v tématech týkajících se přímo oddílové
+        činnosti (třeba workshop o seznamovacích hrách či seminář o dotacích),
+        nebo v oblastech zcela nesouvisejících (například Acroyoga nebo Cestování
+        po Skandinávii).</h5>
 
-      <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p class="w3-text-grey">Nápad s Piomaximem přišel začátkem roku 2020, kdy
+        chtěli Chemik a Ledy během covidové karantény zprostředkovat pionýrským
+        vedoucím možnost vzájemného vzdělávání. Ze začátku probíhaly programy
+        online, a to jak přednášky, tak i praktické workshopy. Po rozvolnění
+        opatření naznali spolu s účastníky proběhlých bloků, že tento vzdělávací
+        koncept není k zahození, a tak ho rozjeli i v osobní formě a ve větším
+        měřítku. Nyní probíhají programy obvykle jednou měsíčně a jsou určené
+        nejen pro pionýry, ale i pro další zájemce z řad vedoucích dětských
+        oddílů.</p>
     </div>
 
     <div class="w3-padding-64">
       <h1>Organizátoři</h1>
-      <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
+      <h5 class="w3-padding-32">Organizátorský tým Piomaxima je složen
+        z dlouholetých pionýrských vedoucích, kteří jsou přesvědčeni, že
+        pravidelné vzdělávání vedoucích dětských organizací (ať už se jedná o
+        pionýry, skauty, tomíky či jiné) je velice důležité, a proto jsme spojili
+        své síly a nápady, abychom mohli tento koncept společně vytvořit.</h5>
 
-      <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p class="w3-text-grey">Hlavními organizátory jsou Ledy a Chemik, kteří
+        od začátku Piomaxima zaštiťují jeho fungování a celý projekt rozjížděli.
+        Jak se povědomí o Piomaximu začalo rozšiřovat, přibrali do týmu Sluníčko,
+        která má za úkol zajišťování dotací a materiálového supportu akcí.
+        Ledy řeší zajišťování lektorů, komunikaci s nimi a tvorbu grafiky.
+        Chemik se stará o PR, komunikuje s vedením Pionýra i ostatními dětskými
+        organizacemi a zvyšuje povědomí o tomto vzdělávacím konceptu.</p>
     </div>
 
     <div>
       <div class="w3-third w3-center w3-margin-bottom">
         <img class="w3-badge w3-transparent smallimg" src="img/ledy.jpg" alt="Organizátoři" />
-        <h4>David „:Ledy“ Beneš</h4>
+        <h4>David „Ledy“ Beneš</h4>
       </div>
       <div class="w3-third w3-center w3-margin-bottom">
         <img class="w3-badge w3-transparent smallimg" src="img/chemik.jpg" alt="Organizátoři" />
@@ -145,7 +164,7 @@ $pocet_programu = $result->num_rows;
 </div>
 
 <div id="contact" class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-    <h1 class="w3-margin w3-xlarge">Sháníme lektory! Máš zájem vést svůj program? <a href="https://docs.google.com/forms/d/e/1FAIpQLSc0qoqgLFYXaPiJARWmDNMSZYFFIvH8Bu3zEe-0TD1QELENYA/viewform?usp=sf_link" target="_blank">Ozvi se nám!</a></h1>
+    <h1 class="w3-margin w3-xlarge">Sháníme lektory! Máš nápad na zajímavý program? <a href="https://docs.google.com/forms/d/e/1FAIpQLSc0qoqgLFYXaPiJARWmDNMSZYFFIvH8Bu3zEe-0TD1QELENYA/viewform?usp=sf_link" target="_blank">Ozvi se nám!</a></h1>
 </div>
 
 <!-- Footer -->
