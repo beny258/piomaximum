@@ -15,7 +15,7 @@
 <link rel="shortcut icon" href="img/logo-icon.png" />
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.w3-bar,.w3-bar-block,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 </style>
 </head>
