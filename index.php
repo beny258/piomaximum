@@ -1,45 +1,6 @@
-<?php include_once "./db_connect.php"; // pripojeni k databazi ?>
-
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-<title>Piomaximum</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="main.css">
-<link rel="shortcut icon" href="img/logo-icon.png" />
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-.fa-anchor,.fa-coffee {font-size:200px}
-</style>
-</head>
-<body>
-
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-white" href="javascript:void(0);" onclick="toggleMenu()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Domů</a>
-    <a href="#programy" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white">Programy</a>
-    <a href="#about" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white">O Piomaximu</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white">Kontakt</a>
-  </div>
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="#programy" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Programy</a>
-    <a href="#about" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">O Piomaximu</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Kontakt</a>
-  </div>
-</div>
+<?php include_once "./includes/db_connect.php"; // pripojeni k databazi ?>
+<?php include_once "./includes/head.php";       // hlavicka souboru ?>
+<?php include_once "./includes/navbar.php";     // menu ?>
 
 <!-- Header -->
 <header class="w3-container w3-center" style="padding: 100px 0px 0px 0px;">
@@ -167,29 +128,5 @@ $pocet_programu = $result->num_rows;
     <h1 class="w3-margin w3-xlarge">Sháníme lektory! Máš nápad na zajímavý program? <a href="https://docs.google.com/forms/d/e/1FAIpQLSc0qoqgLFYXaPiJARWmDNMSZYFFIvH8Bu3zEe-0TD1QELENYA/viewform?usp=sf_link" target="_blank">Ozvi se nám!</a></h1>
 </div>
 
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity">
-  <div class="w3-xxxlarge">
-    <a href="mailto:david@stezka.org?subject=Piomaximum" target="_blank"><i class="fa fa-envelope w3-hover-opacity"></i></a>
-    <a href="https://www.facebook.com/piomaximum" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
-    <a href="https://www.instagram.com/piomaximum/" target="_blank"><i class="fa fa-instagram w3-hover-opacity"></i></a>
- </div>
- <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-</footer>
-
-<script>
-// Used to toggle the menu on small screens when clicking on the menu button
-function toggleMenu() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else {
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-</script>
-
-</body>
-</html>
-
-<?php include_once "./db_close.php"; // ukonceni spojeni s databazi ?>
+<?php include_once "./includes/footer.php";   // paticka stranky ?>
+<?php include_once "./includes/db_close.php"; // ukonceni spojeni s databazi ?>
