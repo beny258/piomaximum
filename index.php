@@ -49,7 +49,7 @@ $pocet_programu = $result->num_rows;
     <?php } ?>
     
     <?php if ($pocet_programu > 1) { ?>
-      <div>
+      <div class="w3-row">
         <h1>Další chystané programy</h1>
         <table class="timetable">
           <?php while ($row = $result->fetch_assoc()) { ?>
@@ -60,7 +60,7 @@ $pocet_programu = $result->num_rows;
       </div>
     <?php } ?>
 
-    <div>
+    <div class="w3-row">
       <h1>Sháníme lektory!</h1>
       <p>Bez vás – lektorů to nejde. Stále sháníme nové tváře do lektorského týmu.</p>
       <p>Máš zajímavé hobby? Navštívil(a) jsi nějakou zajímavou destinaci? Máš dovednost, kterou chceš naučit i nové kamarády? Umíš něco, o čem si myslíš, že by oddíloví vedoucí rádi slyšeli? Zvládneš odvést báječnou hru pro dospělé vedoucí?</p>
