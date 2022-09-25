@@ -60,6 +60,14 @@ $pocet_programu = $result->num_rows;
       </div>
     <?php } ?>
 
+    <div>
+      <h1>Sháníme lektory!</h1>
+      <p>Bez vás – lektorů to nejde. Stále sháníme nové tváře do lektorského týmu.</p>
+      <p>Máš zajímavé hobby? Navštívil(a) jsi nějakou zajímavou destinaci? Máš dovednost, kterou chceš naučit i nové kamarády? Umíš něco, o čem si myslíš, že by oddíloví vedoucí rádi slyšeli? Zvládneš odvést báječnou hru pro dospělé vedoucí?</p>
+      <p>Ozvi se nám. Jsme přesvědčeni o tom, že každý z vás má v sobě něco, co může předat ostatním! Neboj se to v sobě objevit. Pomůžeme ti, pokud s lektorováním nemáš zatím zkušenosti.</p>
+    </div>
+
+
   </div>
 </div>
 
