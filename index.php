@@ -2,6 +2,16 @@
 <?php include_once "./includes/head.php";       // hlavicka souboru ?>
 <?php include_once "./includes/navbar.php";     // menu ?>
 
+<?php
+  function get_date_string($datetime, $alttext) {
+    if (!is_null($alttext)) {
+      return $alttext;
+    }
+    $datetime_obj = new DateTime($datetime);
+    return $datetime_obj->format('j. n.');
+  }
+?>
+
 <!-- Header -->
 <header class="w3-container w3-center" style="padding: 100px 0px 0px 0px;">
   <img src="img/logo-safezone.png" alt="Piomaximum" />
@@ -9,7 +19,7 @@
 
 <!-- First Grid -->
 <?php
-$sql = "SELECT programy.nazev, programy.popis, programy.termin, programy.lektor_jmeno, programy.fb_event, typy.img_name AS typ, mista.nazev AS misto
+$sql = "SELECT programy.nazev, programy.popis, programy.termin, programy.termin_alt, programy.lektor_jmeno, programy.fb_event, typy.img_name AS typ, mista.nazev AS misto
 FROM programy
 LEFT JOIN typy ON programy.typ_id = typy.id
 LEFT JOIN mista ON programy.misto_id = mista.id
@@ -53,8 +63,8 @@ $pocet_programu = $result->num_rows;
         <h1>Další chystané programy</h1>
         <table class="timetable">
           <?php while ($row = $result->fetch_assoc()) { ?>
-            <?php $termin_dt = new DateTime($row["termin"]); ?>
-            <tr><th><?php echo $termin_dt->format('j. n.'); ?></th><td><?php echo $row["nazev"]; echo( !is_null($row["lektor_jmeno"]) ? " (".$row["lektor_jmeno"].")" : "" ); ?></td></tr>
+            <?php $termin_dt = get_date_string($row["termin"], $row["termin_alt"]); ?>
+            <tr><th><?php echo $termin_dt; ?></th><td><?php echo $row["nazev"]; echo( !is_null($row["lektor_jmeno"]) ? " (".$row["lektor_jmeno"].")" : "" ); ?></td></tr>
           <?php } ?>
         </table>
       </div>
