@@ -36,16 +36,16 @@ $pocet_programu = $result->num_rows;
       <?php if ($pocet_programu > 0) { ?>
         <?php $row = $result->fetch_assoc(); ?>
         <?php $termin_dt = new DateTime($row["termin"]); ?>
-        <h3><?php echo $row["nazev"]; ?></h3>
+        <h3><?=$row["nazev"]?></h3>
         <h5><strong>Vedoucí: </strong><?php echo( is_null($row["lektor_jmeno"]) ? "<em>(bude doplněno)</em>" : $row["lektor_jmeno"] ); ?></h5>
         <h5><strong>Kdy a kde: </strong><?php echo $termin_dt->format('j. n. \o\d G:i'); ?> <?php echo( is_null($row["misto"]) ? "<em>(místo bude doplněno)</em>" : $row["misto"] ); ?></h5>
 
         <?php if (!is_null($row["popis"])) { ?>
-          <p class="w3-text-grey"><?php echo $row["popis"]; ?></p>
+          <p class="w3-text-grey"><?=$row["popis"]?></p>
         <?php } ?>
 
         <?php if (!is_null($row["fb_event"])) { ?>
-          <a href=<?php echo "'".$row["fb_event"]."'"; ?> target="_blank"><h6>Odkaz na FB událost</h6></a>
+          <a href=<?="'".$row["fb_event"]."'"?> target="_blank"><h6>Odkaz na FB událost</h6></a>
         <?php } ?>
       <?php } else { ?>
         <p>Momentálně není v blízké době naplánován žádný program.</p>
@@ -54,7 +54,7 @@ $pocet_programu = $result->num_rows;
 
     <?php if ($pocet_programu > 0) { ?>
       <div class="w3-third w3-padding-24 w3-center photo">
-        <img src=<?php echo "'img/icons/".$row["typ"]."'"; ?> />
+        <img src=<?="'img/icons/".$row["typ"]."'"?> />
       </div>
     <?php } ?>
     
@@ -64,7 +64,7 @@ $pocet_programu = $result->num_rows;
         <table class="timetable">
           <?php while ($row = $result->fetch_assoc()) { ?>
             <?php $termin_dt = get_date_string($row["termin"], $row["termin_alt"]); ?>
-            <tr><th><?php echo $termin_dt; ?></th><td><?php echo $row["nazev"]; echo( !is_null($row["lektor_jmeno"]) ? " (".$row["lektor_jmeno"].")" : "" ); ?></td></tr>
+            <tr><th><?=$termin_dt?></th><td><?php echo $row["nazev"]; echo( !is_null($row["lektor_jmeno"]) ? " (".$row["lektor_jmeno"].")" : "" ); ?></td></tr>
           <?php } ?>
         </table>
       </div>
