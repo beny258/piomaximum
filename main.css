@@ -57,3 +57,7 @@
 .font-color-sec {
     color: #93a7ac;
 }
+
+.font-no-decor {
+    text-decoration: none;
+}
