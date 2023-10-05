@@ -1,34 +1,6 @@
-
-@media screen and (min-width: 601px) {
-    header img {
-        width: 70%;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    header img {
-        width: 100%;
-    }
-}
-
-@media screen and (min-width: 601px) {
-    .linesup, .linesdown {
-        height: 512px;
-    }
-
-    .linesup {
-        background: url("img/lines-up.png") no-repeat center;
-    }
-
-    .linesdown {
-        background: url("img/lines-down.png") no-repeat center;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .linesup, .linesdown {
-        display: none;
-    }
+.linesdown {
+    background: url("img/lines-down.png") no-repeat center;
+    height: 512px;
 }
 
 .timetable td, th {
@@ -41,15 +13,47 @@
     text-align: right;
 }
 
-.photo img {
-    max-width: 300px;
-    max-height: 300px;
+.header-img {
+    width: 70%;
 }
 
-.smallimg {
-    max-width: 200px;
+.header-img-small {
+    width: 90%;
+}
+
+.large-img {
+    max-width: 384px;
+    max-height: 384px;
+}
+
+.medium-img {
+    max-width: 288px;
+    max-height: 288px;
+}
+
+.small-img {
+    max-width: 192px;
+    max-height: 192px;
+}
+
+.xsmall-img {
+    max-width: 96px;
+    max-height: 96px;
+}
+
+.xxsmall-img {
+    max-width: 48px;
+    max-height: 48px;
 }
 
 .margin-bottom {
     margin-bottom: 100px;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.font-color-sec {
+    color: #93a7ac;
 }

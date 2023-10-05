@@ -39,8 +39,8 @@ $pocet_programu = $result->num_rows;
     </div>
 
     <?php if ($pocet_programu > 0) { ?>
-      <div class="w3-third w3-padding-24 w3-center photo">
-        <img src=<?="'img/icons/".$row["typ"]."'"?> />
+      <div class="w3-third w3-padding-24 w3-center">
+        <img src=<?="'img/icons/".$row["typ"]."'"?> class="medium-img" />
       </div>
     <?php } ?>
     
@@ -60,7 +60,7 @@ $pocet_programu = $result->num_rows;
 
 <!-- Second Grid -->
 <?php
-$sql = "SELECT programy.nazev, programy.termin, programy.termin_alt, programy.lektor_jmeno, programy.fb_event, typy.img_name AS typ
+$sql = "SELECT programy.nazev, programy.termin, programy.termin_alt, programy.lektor_jmeno, programy.fb_event, typy.img_name AS typ_ikona, typy.nazev AS typ_nazev
 FROM programy
 LEFT JOIN typy ON programy.typ_id = typy.id
 LEFT JOIN mista ON programy.misto_id = mista.id
@@ -77,17 +77,24 @@ $pocet_programu = $result->num_rows;
       <?php $termin_dt = get_date_string($row["termin"], $row["termin_alt"], 'j. n. Y'); ?>
       
       <div class="w3-row w3-margin-bottom w3-margin-top">
-        <div class="w3-quarter w3-center w3-margin-top">
+      
+        <?php // TERMIN ?>
+        <div class="w3-quarter w3-center">
           <h5><?=$termin_dt?></h5>
         </div>
         
+        <?php // NAZEV, LEKTOR ?>
         <div class="w3-half">
           <h4><?=$row["nazev"]?></h4>
           <p><?=$row["lektor_jmeno"]?></p>
         </div>
 
-        <div class="w3-quarter w3-margin-top">
-          <img src=<?="'img/icons/".$row["typ"]."'"?> style="max-height:48px;" />
+        <?php // IKONA ?>
+        <div class="w3-quarter">
+          <p>
+            <img class="w3-show-inline-block xxsmall-img" src=<?="'img/icons/".$row["typ_ikona"]."'"?> />
+            <span class="w3-hide-medium w3-hide-large font-bold font-color-sec"><?=$row["typ_nazev"]?></span>
+          </p>
         </div>
       </div>
 

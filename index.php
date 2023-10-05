@@ -39,8 +39,8 @@ $pocet_programu = $result->num_rows;
     </div>
 
     <?php if ($pocet_programu > 0) { ?>
-      <div class="w3-third w3-padding-24 w3-center photo">
-        <img src=<?="'img/icons/".$row["typ"]."'"?> />
+      <div class="w3-third w3-padding-24 w3-center">
+        <img src=<?="'img/icons/".$row["typ"]."'"?> class="medium-img" />
       </div>
     <?php } ?>
     
@@ -69,7 +69,8 @@ $pocet_programu = $result->num_rows;
 <!-- Second Grid -->
 <div class="w3-row-padding w3-light-grey w3-container">
   <div class="w3-content">
-    <div class="w3-third w3-center">
+
+    <div class="w3-third w3-center w3-hide-small">
       <div class="linesdown"></div>
     </div>
 
@@ -112,18 +113,19 @@ $pocet_programu = $result->num_rows;
 
     <div>
       <div class="w3-third w3-center w3-margin-bottom">
-        <img class="w3-badge w3-transparent smallimg" src="img/ledy.jpg" alt="Organizátoři" />
+        <img class="w3-badge w3-transparent small-img" src="img/org-ledy.jpg" alt="Organizátoři" />
         <h4>David „Ledy“ Beneš</h4>
       </div>
       <div class="w3-third w3-center w3-margin-bottom">
-        <img class="w3-badge w3-transparent smallimg" src="img/chemik.jpg" alt="Organizátoři" />
+        <img class="w3-badge w3-transparent small-img" src="img/org-chemik.jpg" alt="Organizátoři" />
         <h4>Martin „Chemik“ Zapletal</h4>
       </div>
       <div class="w3-third w3-center w3-margin-bottom">
-        <img class="w3-badge w3-transparent smallimg" src="img/slunicko.jpg" alt="Organizátoři" />
+        <img class="w3-badge w3-transparent small-img" src="img/org-slunicko.jpg" alt="Organizátoři" />
         <h4>Radka „Sluníčko“ Mikušková</h4>
       </div>
     </div>
+
   </div>
 </div>
 

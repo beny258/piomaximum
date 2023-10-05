@@ -8,7 +8,7 @@
     <a href="https://github.com/beny258/piomaximum" target="_blank"><i class="fa fa-github w3-hover-opacity"></i></a>
   </div>
   <div class="w3-padding-32">
-    <a href="https://pionyr.cz/" target="_blank"><img src="../img/pionyr_horiz_rgb.gif" height="40px" /></a>
+    <a href="https://pionyr.cz/" target="_blank"><img src="../img/ext-pionyr.gif" height="40px" /></a>
   </div>
   <div class="w3-opacity">
     <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
