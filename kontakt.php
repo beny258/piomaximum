@@ -11,19 +11,21 @@
     <h1>Kde nás najdete</h1>
     
     <div class="w3-half">
-      <iframe style="border:none" src="https://frame.mapy.cz/s/mucemeleju" width="400" height="280" frameborder="0"></iframe>
+      <iframe class="w3-hide-small w3-hide-medium" style="border:none" src="https://frame.mapy.cz/s/mucemeleju" width="400" height="280" frameborder="0"></iframe>
+      <a class="w3-hide-large" href="https://mapy.cz/s/dufovuguro"><img src="img/map.png" style="max-width:90%;" /></a>
     </div>
 
-    <div class="w3-half w3-large">
+    <div class="w3-half">
       <h2>Adresa</h2>
-      <p>
+      <p class="w3-large">
         Jihomoravská krajská organizace Pionýra <br />
         Údolní 58a <br />
         Brno 60200
       </p>
+      <p>Vchod je zelenou brankou z ulice Bratří Čapků.</p>
 
       <h2>Kontakt</h2>
-      <a href="mailto:david@stezka.org?subject=Piomaximum" class="font-no-decor" target="_blank"><i class="fa fa-envelope"></i> david@stezka.org</a>
+      <a href="mailto:david@stezka.org?subject=Piomaximum" class="w3-large font-no-decor" target="_blank"><i class="fa fa-envelope"></i> david@stezka.org</a>
     </div>
 
   </div>
