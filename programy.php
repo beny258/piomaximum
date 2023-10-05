@@ -6,53 +6,48 @@
 
 <!-- First Grid -->
 <?php
-$sql = "SELECT programy.nazev, programy.popis, programy.termin, programy.termin_alt, programy.lektor_jmeno, programy.fb_event, typy.img_name AS typ, mista.nazev AS misto
+$sql = "SELECT programy.nazev, programy.termin, programy.termin_alt, programy.lektor_jmeno, programy.fb_event, typy.img_name AS typ_ikona, typy.nazev AS typ_nazev
 FROM programy
 LEFT JOIN typy ON programy.typ_id = typy.id
 LEFT JOIN mista ON programy.misto_id = mista.id
-WHERE published=1 AND termin>CURRENT_TIMESTAMP
-ORDER BY termin";
+WHERE published=1 AND termin>=CURRENT_TIMESTAMP
+ORDER BY termin DESC";
 $result = $conn->query($sql);
 $pocet_programu = $result->num_rows;
 ?>
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
 
-    <div class="w3-twothird">
-      <h1>Nejbližší program</h1>
-      <?php if ($pocet_programu > 0) { ?>
-        <?php $row = $result->fetch_assoc(); ?>
-        <h3><?=$row["nazev"]?></h3>
-        <h5><strong>Vedoucí: </strong><?php echo( is_null($row["lektor_jmeno"]) ? "<em>(bude doplněno)</em>" : $row["lektor_jmeno"] ); ?></h5>
-        <h5><strong>Kdy a kde: </strong><?=get_date_string($row["termin"], $row["termin_alt"], 'j. n. \o\d G:i')?> <?php echo( is_null($row["misto"]) ? "<em>(místo bude doplněno)</em>" : $row["misto"] ); ?></h5>
-
-        <?php if (!is_null($row["popis"])) { ?>
-          <p class="w3-text-grey"><?=$row["popis"]?></p>
-        <?php } ?>
-
-        <?php if (!is_null($row["fb_event"])) { ?>
-          <a href=<?="'".$row["fb_event"]."'"?> target="_blank"><h6>Odkaz na FB událost</h6></a>
-        <?php } ?>
-      <?php } else { ?>
-        <p>Momentálně není v blízké době naplánován žádný program.</p>
-      <?php } ?>
-    </div>
-
-    <?php if ($pocet_programu > 0) { ?>
-      <div class="w3-third w3-padding-24 w3-center">
-        <img src=<?="'img/icons/".$row["typ"]."'"?> class="medium-img" />
-      </div>
-    <?php } ?>
-    
-    <?php if ($pocet_programu > 1) { ?>
-      <div class="w3-row">
-        <h1>Další chystané programy</h1>
-        <table class="timetable">
-          <?php while ($row = $result->fetch_assoc()) { ?>
-            <tr><th><?=get_date_string($row["termin"], $row["termin_alt"], 'j. n.')?></th><td><?php echo $row["nazev"]; echo( !is_null($row["lektor_jmeno"]) ? " (".$row["lektor_jmeno"].")" : "" ); ?></td></tr>
+    <h1>Plánované programy</h1>
+    <?php $pocitadlo = 0; ?>
+    <?php while ($row = $result->fetch_assoc()) { ?>
+      <?php $termin_dt = get_date_string($row["termin"], $row["termin_alt"], 'j. n. Y'); ?>
+      <?php $pocitadlo++; ?>
+      <div class="w3-row w3-margin-bottom w3-margin-top">
+      
+        <?php // TERMIN ?>
+        <div class="w3-quarter w3-center">
+          <h5><?=$termin_dt?></h5>
+          <?php if ($pocitadlo == $pocet_programu) { ?>
+            <p class="font-italic">(nejbližší program)</p>
           <?php } ?>
-        </table>
+        </div>
+        
+        <?php // NAZEV, LEKTOR ?>
+        <div class="w3-half">
+          <h4><?=$row["nazev"]?></h4>
+          <p><?=$row["lektor_jmeno"]?></p>
+        </div>
+
+        <?php // IKONA ?>
+        <div class="w3-quarter">
+          <p>
+            <img class="w3-show-inline-block xxsmall-img" src=<?="'img/icons/".$row["typ_ikona"]."'"?> />
+            <span class="w3-hide-medium w3-hide-large font-bold font-color-sec"><?=$row["typ_nazev"]?></span>
+          </p>
+        </div>
       </div>
+
     <?php } ?>
 
   </div>

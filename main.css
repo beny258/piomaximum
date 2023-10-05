@@ -54,6 +54,10 @@
     font-weight: bold;
 }
 
+.font-italic {
+    font-style: italic;
+}
+
 .font-color-sec {
     color: #93a7ac;
 }
