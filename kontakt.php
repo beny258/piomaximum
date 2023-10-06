@@ -25,7 +25,8 @@
       <p>Vchod je zelenou brankou z ulice Bratří Čapků.</p>
 
       <h2>Kontakt</h2>
-      <a href="mailto:david@stezka.org?subject=Piomaximum" class="w3-large font-no-decor" target="_blank"><i class="fa fa-envelope"></i> david@stezka.org</a>
+      <a href="mailto:david@stezka.org?subject=Piomaximum" class="w3-large font-no-decor" target="_blank"><i class="fa fa-envelope"></i> david@stezka.org</a><br />
+      <a href="tel:+420604625022" class="w3-large font-no-decor" target="_blank"><i class="fa fa-phone"></i> 604&nbsp;625&nbsp;022</a>
     </div>
 
   </div>
