@@ -44,16 +44,19 @@ $pocet_programu = $result->num_rows;
       </div>
     <?php } ?>
     
-    <?php if ($pocet_programu > 1) { ?>
-      <div class="w3-row">
-        <h1>Další chystané programy</h1>
+    
+    <div class="w3-row">
+      <h1>Další chystané programy</h1>
+      <?php if ($pocet_programu > 1) { ?>
         <table class="timetable">
           <?php while ($row = $result->fetch_assoc()) { ?>
             <tr><th><?=get_date_string($row["termin"], $row["termin_alt"], 'j. n.')?></th><td><?php echo $row["nazev"]; echo( !is_null($row["lektor_jmeno"]) ? " (".$row["lektor_jmeno"].")" : "" ); ?></td></tr>
           <?php } ?>
         </table>
-      </div>
-    <?php } ?>
+      <?php } ?>
+      <a href="programy.php">Kompletní seznam programů &raquo;</a>
+    </div>
+    
 
     <div class="w3-row">
       <h1>Sháníme lektory!</h1>
