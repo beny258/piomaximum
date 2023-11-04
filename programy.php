@@ -42,7 +42,7 @@ $pocet_programu = $result->num_rows;
         <?php // IKONA ?>
         <div class="w3-quarter">
           <p>
-            <img class="w3-show-inline-block xxsmall-img" src=<?="'img/icons/".$row["typ_ikona"]."'"?> />
+            <img class="w3-show-inline-block xxsmall-img" src=<?="'img/icons/".$row["typ_ikona"]."'"?> title="<?=$row["typ_nazev"]?>" />
             <span class="w3-hide-medium w3-hide-large font-bold font-color-sec"><?=$row["typ_nazev"]?></span>
           </p>
         </div>
@@ -55,7 +55,7 @@ $pocet_programu = $result->num_rows;
 
 <!-- Second Grid -->
 <?php
-$sql = "SELECT programy.nazev, programy.termin, programy.termin_alt, programy.lektor_jmeno, programy.fb_event, typy.img_name AS typ_ikona, typy.nazev AS typ_nazev
+$sql = "SELECT programy.nazev, programy.termin, programy.termin_alt, programy.lektor_jmeno, programy.fb_event, programy.yt_video, typy.img_name AS typ_ikona, typy.nazev AS typ_nazev
 FROM programy
 LEFT JOIN typy ON programy.typ_id = typy.id
 LEFT JOIN mista ON programy.misto_id = mista.id
@@ -80,14 +80,19 @@ $pocet_programu = $result->num_rows;
         
         <?php // NAZEV, LEKTOR ?>
         <div class="w3-half">
-          <h4><?=$row["nazev"]?></h4>
+          <h4>
+            <?=$row["nazev"]?>
+            <?php if ($row["yt_video"]) { ?>
+              <a href="<?=$row["yt_video"]?>" target="_blank" title="Videozáznam programu"><i class="fa fa-youtube-play w3-hover-opacity w3-margin-left"></i></a>
+            <?php } ?>
+          </h4>
           <p><?=$row["lektor_jmeno"]?></p>
         </div>
 
         <?php // IKONA ?>
         <div class="w3-quarter">
           <p>
-            <img class="w3-show-inline-block xxsmall-img" src=<?="'img/icons/".$row["typ_ikona"]."'"?> />
+            <img class="w3-show-inline-block xxsmall-img" src=<?="'img/icons/".$row["typ_ikona"]."'"?> title="<?=$row["typ_nazev"]?>" />
             <span class="w3-hide-medium w3-hide-large font-bold font-color-sec"><?=$row["typ_nazev"]?></span>
           </p>
         </div>
